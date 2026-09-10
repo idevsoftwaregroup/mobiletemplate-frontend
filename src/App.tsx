@@ -7,7 +7,8 @@ import Academy from "./views/Academy";
 import Consulting from "./views/Consulting";
 import Projects from "./views/Projects";
 import About from "./views/About";
-import Callus from './views/Callus';
+import Callus from "./views/Callus";
+
 export default function App() {
   return (
     <BrowserRouter>
