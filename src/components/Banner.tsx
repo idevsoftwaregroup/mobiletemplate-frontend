@@ -5,7 +5,10 @@ import "swiper/css";
 import { getProducts, type Product } from "../services/products.services";
 import { useEffect, useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 export default function Banner() {
+  const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -33,7 +36,7 @@ export default function Banner() {
   }, []);
 
   if (loading) {
-    return <div className="p-4 text-center">Loading...</div>;
+    return <div className="p-4 text-end">در حال بارگذاری ... </div>;
   }
 
   if (error) {
@@ -42,6 +45,20 @@ export default function Banner() {
 
   return (
     <div className="w-full">
+      <div
+        className="w-full right margin-bottom"
+        style={{ marginBottom: "15px" }}
+      >
+        <div className="row left">
+          <button
+            className="border small tertiary left-shadow"
+            onClick={() => navigate("/products")}
+          >
+            <i>storefront</i>
+            <span>همه محصول ها را ببینید</span>
+          </button>
+        </div>
+      </div>
       <Swiper
         spaceBetween={16}
         slidesPerView={1.2}

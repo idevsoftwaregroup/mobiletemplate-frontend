@@ -13,24 +13,35 @@
   margin-top: 1.5rem;
 }
 .custom-input {
-    background-color: #c7c7c724;
-    box-shadow: none !important;
-    color: grey !important;
+  background-color: #c7c7c724;
+  box-shadow: none !important;
+  color: grey !important;
 }
 
 .borderInput {
-    border-color: #c7c7c7 !important;
+  border-color: #c7c7c7 !important;
 }
 
 .dirRTL {
-    direction: rtl !important;
+  direction: rtl !important;
 }
 
 .dirLTR {
-    direction: ltr !important;
+  direction: ltr !important;
 }
 
 /* Borders */
 .main-border {
   border: 1px solid #f1f1f1 !important;
 }
+
+/* Sizes */
+.iconMedium {
+  min-width: 50% !important;
+}
+.iconLarge {
+  min-width: 75% !important;
+}
+
+/* Top Mobile Header  */
+

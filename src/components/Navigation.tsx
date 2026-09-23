@@ -3,8 +3,11 @@ import { useState } from "react";
 
 import logo from "../assets/logo/mainlogo.png";
 
+import "../assets/css/components/Navigation.css";
+
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
 
   const style = {
     alignRTL: "RTL",
@@ -27,34 +30,45 @@ export default function Navigation() {
             >
               <i className="large">apps</i>
             </button>
-
             {/* CART */}
             <button className="circle transparent large">
               <NavLink to="/cart">
                 <i className="large">shopping_cart</i>
               </NavLink>
             </button>
-
-            {/* ACCOUNT */}
             {/* ACCOUNT */}
             <div className="account-menu-container">
-              <button className="circle transparent large">
+              <button
+                className="circle transparent large"
+                onClick={() => setAccountOpen((value) => !value)}
+              >
                 <i className="large">account_circle</i>
               </button>
 
-              <menu className="account-dropdown gray-container">
-                <li>
-                  <NavLink to="/account/profile">پروفایل</NavLink>
-                </li>
+              {accountOpen && (
+                <menu className="account-dropdown" dir="rtl">
+                  <li>
+                    <NavLink to="/account/profile">
+                      <i>person</i>
+                      پروفایل
+                    </NavLink>
+                  </li>
 
-                <li>
-                  <NavLink to="/account/orders">سفارش‌ها</NavLink>
-                </li>
+                  <li>
+                    <NavLink to="/account/orders">
+                      <i>receipt_long</i>
+                      سفارش‌ها
+                    </NavLink>
+                  </li>
 
-                <li>
-                  <NavLink to="/account/payments">پرداخت‌ها</NavLink>
-                </li>
-              </menu>
+                  <li>
+                    <NavLink to="/account/payments">
+                      <i>payments</i>
+                      پرداخت‌ها
+                    </NavLink>
+                  </li>
+                </menu>
+              )}
             </div>
           </div>
 
@@ -127,7 +141,7 @@ export default function Navigation() {
             <NavLink to="/consulting">
               <i>psychology</i>
 
-              <span>مشاوره تکنولوژی</span>
+              <span>مشاوره روانشناسی</span>
             </NavLink>
           </li>
 
@@ -136,10 +150,10 @@ export default function Navigation() {
             dir={style.alignRTL}
             onClick={() => setOpen(false)}
           >
-            <NavLink to="/projects">
-              <i>rocket_launch</i>
+            <NavLink to="/products">
+              <i>storefront</i>
 
-              <span>پروژه ها</span>
+              <span>محصول ها</span>
             </NavLink>
           </li>
 

@@ -5,9 +5,10 @@ import LayoutComponent from "./components/LayoutComponent";
 import Home from "./views/Home";
 import Academy from "./views/Academy";
 import Consulting from "./views/Consulting";
-import Projects from "./views/Projects";
+import Projects from "./views/Products";
 import About from "./views/About";
 import Callus from "./views/Callus";
+import Products from "./views/Products";
 
 export default function App() {
   return (
@@ -20,7 +21,7 @@ export default function App() {
 
           <Route path="/consulting" element={<Consulting />} />
 
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/products" element={<Products />} />
 
           <Route path="/about" element={<About />} />
 

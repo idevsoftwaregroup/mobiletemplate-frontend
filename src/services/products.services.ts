@@ -99,3 +99,15 @@ export async function createProduct(formData: FormData) {
 
   return data;
 }
+
+export async function getProductById(id: string): Promise<Product> {
+  const response = await fetch(`${API_URL}/products/${id}`);
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Failed to fetch product");
+  }
+
+  return data;
+}
