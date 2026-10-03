@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/mainlogo.png"
+import logo from "../assets/mainlogo.png";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
@@ -7,17 +7,18 @@ export default function Navbar() {
     dirRTL: "RTL",
     dirLTR: "LTr",
     bottom: "bottom",
-    large: "large"
-  }
+    large: "large",
+  };
 
   return (
     <>
       <header className="fixed medium-padding">
         <nav>
           <h6 className="max">
-            <img src={logo} className="large"/>
+            <a href="/">
+              <img src={logo} className="large" />
+            </a>
           </h6>
-
 
           <button className="circle transparent large">
             <i className={`${style.large}`}>account_circle</i>
@@ -28,11 +29,9 @@ export default function Navbar() {
             <li>درباره ما</li>
           </menu>
 
-
           <a href="tel:+989024276771" className="circle transparent large">
             <i className={`${style.large}`}>call</i>
           </a>
-
         </nav>
       </header>
 

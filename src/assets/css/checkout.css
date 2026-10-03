@@ -1,0 +1,276 @@
+.checkout-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkout-header {
+  width: 100%;
+}
+
+.checkout-header nav {
+  min-height: 64px;
+  padding: 0 12px;
+}
+
+/* Error */
+
+.checkout-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 18px;
+  margin-bottom: 20px;
+
+  border-radius: 12px;
+
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+/* Main layout */
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* Form */
+
+.checkout-form {
+  min-width: 0;
+}
+
+.checkout-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.checkout-full {
+  grid-column: 1 / -1;
+}
+
+.checkout-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-upload label {
+  font-weight: 600;
+}
+
+.checkout-upload input {
+  width: 100%;
+}
+
+/* Summary */
+
+.checkout-summary {
+  position: sticky;
+  top: 20px;
+}
+
+.checkout-products {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkout-product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.checkout-product-image {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+}
+
+.checkout-product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+.checkout-product p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.checkout-total {
+  font-size: 1.2rem;
+}
+
+.checkout-submit,
+.checkout-back {
+  width: 90%;
+  justify-content: center;
+  margin: 0 0 10px;
+}
+
+/* Success */
+
+.checkout-success,
+.checkout-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.checkout-success > i {
+  margin-bottom: 20px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .checkout-page {
+    padding: 0 12px;
+  }
+
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    position: static;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .checkout-page {
+    padding: 0 8px;
+  }
+
+  .checkout-header nav {
+    min-height: 56px;
+  }
+
+  .checkout-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .checkout-fields {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .checkout-full {
+    grid-column: auto;
+  }
+
+  .checkout-form,
+  .checkout-summary {
+    padding: 14px;
+  }
+
+  .checkout-product {
+    align-items: flex-start;
+  }
+
+  .checkout-product-image {
+    flex: 0 0 54px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .checkout-product > strong:last-child {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .checkout-error {
+    font-size: 0.9rem;
+  }
+}
+
+/* Very small phones */
+
+@media (max-width: 380px) {
+  .checkout-product {
+    flex-wrap: wrap;
+  }
+
+  .checkout-product > strong:last-child {
+    width: 100%;
+    text-align: right;
+    padding-right: 66px;
+  }
+}
+```css
+.checkout-fields {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.checkout-fields > .field {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* All inputs have exactly the same width */
+.checkout-fields > .field > input,
+.checkout-fields > .field > textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Address takes the entire row */
+.checkout-fields > .checkout-full {
+  grid-column: 1 / -1;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .checkout-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .checkout-fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .checkout-fields > .field,
+  .checkout-fields > .checkout-full {
+    grid-column: 1;
+  }
+}
+```

@@ -1,0 +1,161 @@
+.product-dialog {
+  width: min(900px, 90vw);
+  max-width: 900px;
+
+  padding: 0;
+  margin: auto;
+
+  border: none;
+  border-radius: 16px;
+
+  background: #fff;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+}
+
+.product-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+/* ==============================
+   CONTENT
+   ============================== */
+
+.product-dialog-content {
+  display: flex;
+
+  flex-direction: row-reverse;
+
+  gap: 2rem;
+
+  align-items: flex-start;
+
+  padding: 2rem;
+}
+
+/* ==============================
+   IMAGE
+   ============================== */
+
+.product-dialog-image {
+  flex: 0 0 40%;
+  max-width: 40%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-dialog-image img {
+  width: 100%;
+  max-width: 320px;
+
+  aspect-ratio: 1 / 1;
+
+  height: auto;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+/* ==============================
+   INFORMATION
+   ============================== */
+
+.product-dialog-info {
+  flex: 1;
+
+  min-width: 0;
+
+  text-align: right;
+}
+
+.product-dialog-info h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.product-dialog-info p {
+  line-height: 1.8;
+
+  margin-bottom: 1rem;
+}
+
+/* ==============================
+   PRICE
+   ============================== */
+
+.product-dialog-info .primary-text {
+  margin-top: 1rem;
+
+  font-weight: 700;
+}
+
+/* ==============================
+   CHIPS
+   ============================== */
+
+.product-dialog-info .chip {
+  margin-left: 0.5rem;
+}
+
+/* ==============================
+   FOOTER / CLOSE BUTTON
+   ============================== */
+
+.product-dialog > form {
+  display: flex;
+
+  justify-content: flex-start;
+
+  padding: 0 2rem 1.5rem;
+}
+
+/* ==============================
+   BACKDROP
+   ============================== */
+
+@media (max-width: 768px) {
+  .product-dialog {
+    width: 92vw;
+    max-width: 92vw;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+  }
+
+  .product-dialog-content {
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+    padding: 1.5rem;
+  }
+
+  .product-dialog-image {
+    flex: none;
+
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-dialog-image img {
+    width: 100%;
+    max-width: 280px;
+
+    margin: 0 auto;
+  }
+
+  .product-dialog-info {
+    width: 100%;
+  }
+
+  .product-dialog > form {
+    padding: 0 1.5rem 1.5rem;
+  }
+}

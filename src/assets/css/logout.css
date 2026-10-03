@@ -1,0 +1,42 @@
+.account-dropdown .logout-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0;
+  padding: 0px 0px;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  color: inherit;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  cursor: pointer;
+
+  transition: none !important;
+}
+
+.account-dropdown .logout-button:hover,
+.account-dropdown .logout-button:focus,
+.account-dropdown .logout-button:focus-visible,
+.account-dropdown .logout-button:active {
+  background: transparent !important;
+  background-color: transparent !important;
+
+  box-shadow: none !important;
+  outline: none !important;
+  transform: none !important;
+
+  color: inherit;
+}
+
+.account-dropdown .logout-button::before,
+.account-dropdown .logout-button::after {
+  display: none !important;
+}

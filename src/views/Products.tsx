@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../assets/css/dialog.css";
 
 import {
   getProducts,
@@ -9,10 +10,14 @@ import {
 
 import imgUrl from "../assets/img/product-placeholder.jpg";
 
+import { useCart } from "../contexts/CartContext";
+
 export default function Products() {
   const openUrlServer = "http://localhost:3000";
 
   const navigate = useNavigate();
+
+  const { addToCart } = useCart();
 
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -95,9 +100,7 @@ round
           </button>
         </nav>
       </header>
-
       <div className="space" />
-
       <div className="grid">
         {products.map((product) => (
           <div className="s12 m6 l4" key={product.id}>
@@ -144,51 +147,59 @@ shadow
           </div>
         ))}
       </div>
-
-      {/* PRODUCT MODAL */}
-
-      <dialog id="product-dialog" className="round" dir="rtl">
+      {/* BEGIN:::PRODUCT MODAL */}
+      <dialog id="product-dialog" className="round product-dialog" dir="rtl">
         <div className="padding">
           {selectedProduct && (
-            <>
-              <img
-                className="responsive round"
-                src={
-                  selectedProduct.imageUrl
-                    ? `${openUrlServer}${selectedProduct.imageUrl}`
-                    : imgUrl
-                }
-                alt={selectedProduct.name}
-              />
-
-              <h4>{selectedProduct.name}</h4>
-
-              <p>{selectedProduct.description}</p>
-
-              <div className="row wrap">
-                <span className="chip">
-                  <i>category</i>
-
-                  {selectedProduct.category}
-                </span>
-
-                <span className="chip">
-                  <i>inventory</i>
-
-                  {selectedProduct.stock}
-                </span>
+            <div className="product-dialog-content">
+              {/* Product Image - LEFT */}
+              <div className="product-dialog-image">
+                <img
+                  className="responsive round"
+                  src={
+                    selectedProduct.imageUrl
+                      ? `${openUrlServer}${selectedProduct.imageUrl}`
+                      : imgUrl
+                  }
+                  alt={selectedProduct.name}
+                />
               </div>
 
-              <h5 className="primary-text">
-                {Number(selectedProduct.price).toLocaleString("fa-IR")}
-                تومان
-              </h5>
+              {/* Product Information - RIGHT */}
+              <div className="product-dialog-info">
+                <h4>{selectedProduct.name}</h4>
 
-              <button className="primary">
-                <i>add</i>
-                افزودن به سبدخرید
-              </button>
-            </>
+                <p>{selectedProduct.description}</p>
+
+                <div className="row wrap">
+                  <span className="chip">
+                    <i>category</i>
+                    {selectedProduct.category}
+                  </span>
+
+                  <span className="chip">
+                    <i>inventory</i>
+                    {selectedProduct.stock}
+                  </span>
+                </div>
+
+                <h5 className="primary-text">
+                  {Number(selectedProduct.price).toLocaleString("fa-IR")} تومان
+                </h5>
+
+                <button
+                  className="primary"
+                  onClick={() => {
+                    if (!selectedProduct) return;
+
+                    addToCart(selectedProduct);
+                  }}
+                >
+                  <i>add</i>
+                  افزودن به سبد خرید
+                </button>
+              </div>
+            </div>
           )}
         </div>
 
@@ -196,6 +207,7 @@ shadow
           <button className="secondary">بستن</button>
         </form>
       </dialog>
+      {/* END */}
     </section>
   );
 }

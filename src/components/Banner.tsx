@@ -1,17 +1,24 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 
 import { getProducts, type Product } from "../services/products.services";
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
+
+import "../../src/assets/css/toast.css";
 
 export default function Banner() {
   const navigate = useNavigate();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const [addedMessage, setAddedMessage] = useState<string | null>(null);
+
+  const { addToCart } = useCart();
 
   const loadProducts = async () => {
     try {
@@ -35,8 +42,18 @@ export default function Banner() {
     loadProducts();
   }, []);
 
+  const handleAddToCart = (product: Product) => {
+    addToCart(product);
+
+    setAddedMessage(`«${product.name}» به سبد خرید اضافه شد.`);
+
+    setTimeout(() => {
+      setAddedMessage(null);
+    }, 2500);
+  };
+
   if (loading) {
-    return <div className="p-4 text-end">در حال بارگذاری ... </div>;
+    return <div className="p-4 text-end">در حال بارگذاری ...</div>;
   }
 
   if (error) {
@@ -45,6 +62,14 @@ export default function Banner() {
 
   return (
     <div className="w-full">
+      {/* Toast */}
+      {addedMessage && (
+        <div className="cart-toast" dir="rtl">
+          <i>check_circle</i>
+          <span>{addedMessage}</span>
+        </div>
+      )}
+
       <div
         className="w-full right margin-bottom"
         style={{ marginBottom: "15px" }}
@@ -59,6 +84,7 @@ export default function Banner() {
           </button>
         </div>
       </div>
+
       <Swiper
         spaceBetween={16}
         slidesPerView={1.2}
@@ -66,11 +92,9 @@ export default function Banner() {
           480: {
             slidesPerView: 2,
           },
-
           768: {
             slidesPerView: 2,
           },
-
           1024: {
             slidesPerView: 4,
           },
@@ -82,48 +106,42 @@ export default function Banner() {
           <SwiperSlide key={product.id} className="rounded-3xl">
             <article
               className="
-                        flex
-                        h-full
-                        flex-col
-                        overflow-hidden
-                        round
-                        border
-                        p-3
-                        shadow-sm
-                        surface-container
-                      "
+                flex
+                h-full
+                flex-col
+                overflow-hidden
+                round
+                border
+                p-3
+                shadow-sm
+                surface-container
+              "
             >
               {/* Product Image */}
               <div
                 className="
-w-full
-    aspect-square
-    overflow-hidden
-    round
-    bg-gray-50
-  "
+                  w-full
+                  aspect-square
+                  overflow-hidden
+                  round
+                  bg-gray-50
+                "
               >
                 <img
                   src={product.imageUrl ?? ""}
                   alt={product.name}
                   loading="lazy"
                   className="
-    h-full
-    w-full
-    object-cover
-  "
+                    h-full
+                    w-full
+                    object-cover
+                  "
                   style={{ width: "100%" }}
                 />
               </div>
 
               {/* Product Info */}
-              <div
-                className="
-                  mt-3
-                  text-right
-                "
-                dir="rtl"
-              >
+              <div className="mt-3 text-right" dir="rtl">
                 <h6
                   className="
                     truncate
@@ -161,6 +179,16 @@ w-full
                   {Number(product.price).toLocaleString()} تومان
                 </p>
               </div>
+
+              {/* ADD TO CART */}
+              <button
+                type="button"
+                className="button primary"
+                onClick={() => handleAddToCart(product)}
+              >
+                <i>shopping_cart</i>
+                افزودن به سبد خرید
+              </button>
             </article>
           </SwiperSlide>
         ))}
