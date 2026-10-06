@@ -9,7 +9,7 @@ import {
   type PaymentStatus,
 } from "../services/payments.services";
 
-const SERVER_URL = "http://0.0.0.0:3000";
+const SERVER_URL = "http://localhost:3000";
 
 function formatPrice(value: string | number): string {
   const amount = Number(value);

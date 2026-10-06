@@ -19,7 +19,7 @@ export default function Cart() {
     clearCart,
   } = useCart();
 
-  const openUrlServer = "http://0.0.0.0:3000";
+  const openUrlServer = "http://localhost:3000";
 
   const getProductImage = (imageUrl?: string | null) => {
     if (!imageUrl) {

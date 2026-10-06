@@ -13,7 +13,7 @@ import imgUrl from "../assets/img/product-placeholder.jpg";
 import { useCart } from "../contexts/CartContext";
 
 export default function Products() {
-  const openUrlServer = "http://0.0.0.0:3000";
+  const openUrlServer = "http://localhost:3000";
 
   const navigate = useNavigate();
 

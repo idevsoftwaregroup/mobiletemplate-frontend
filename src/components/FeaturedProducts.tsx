@@ -6,7 +6,7 @@ import { useCart } from "../contexts/CartContext";
 
 import imgUrl from "../../src/assets/img/product-placeholder.jpg";
 
-const SERVER_URL = "http://0.0.0.0:3000";
+const SERVER_URL = "http://localhost:3000";
 
 export default function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([]);
