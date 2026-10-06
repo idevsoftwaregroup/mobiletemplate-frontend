@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import logo from "../assets/logo/mainlogo.png";
+import logo from "../assets/logo/hastan_main_logo.png";
 
 import "../assets/css/components/Navigation.css";
 
@@ -63,7 +63,7 @@ export default function Navigation() {
                 className="circle transparent large"
                 aria-label="سبد خرید"
               >
-                <i className="large">shopping_cart</i>
+                <i className="large circle">local_mall</i>
 
                 {totalItems > 0 && <span className="badge">{totalItems}</span>}
               </NavLink>
@@ -77,7 +77,7 @@ export default function Navigation() {
                 onClick={() => setAccountOpen((value) => !value)}
                 aria-label="حساب کاربری"
               >
-                <i className="large">account_circle</i>
+                <i className="large circle">supervisor_account</i>
               </button>
 
               {accountOpen && (
@@ -119,7 +119,7 @@ export default function Navigation() {
                       className="logout-button"
                       onClick={handleLogout}
                     >
-                      <i>logout</i> <span>خروج</span>{" "}
+                      <i>logout</i> <span>ورود / خروج</span>{" "}
                     </button>
                   </li>
                 </menu>
@@ -131,9 +131,9 @@ export default function Navigation() {
           {/* LEFT SIDE LOGO */}
           <NavLink to="/" title={logoTitle} aria-label="صفحه اصلی">
             <img
-              src={logo}
-              className="circle right-round top-round"
-              alt="i-dev"
+              className="responsive tiny circle"
+              alt="هستان"
+              src="/src/assets/logo/hastan_logo.png"
             />
           </NavLink>
         </nav>
@@ -143,11 +143,11 @@ export default function Navigation() {
         <header>
           <nav>
             <NavLink to="/" title={logoTitle} onClick={() => setOpen(false)}>
-              <img src={logo} className="circle large" alt="logo" />
+              <img src={logo} className="responsive tiny" alt="logo" />
             </NavLink>
 
             <h6 className="max small">
-              گروه نرم فزاری <sup className="bold">آی دِو</sup>
+              زندگی نو <sup className="bold"> هستان </sup>
             </h6>
 
             <button

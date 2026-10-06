@@ -122,9 +122,9 @@ export default function AboutUs() {
 
             {imageUrl && <div className="space" />}
 
-            <h4>{page.title}</h4>
+            {/* <h4>{page.title}</h4> */}
 
-            <div className="divider" />
+            {/* <div className="divider" /> */}
 
             <div
               style={{
