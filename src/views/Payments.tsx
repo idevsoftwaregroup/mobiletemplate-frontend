@@ -9,7 +9,7 @@ import {
   type PaymentStatus,
 } from "../services/payments.services";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 function formatPrice(value: string | number): string {
   const amount = Number(value);

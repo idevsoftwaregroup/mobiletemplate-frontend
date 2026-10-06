@@ -19,7 +19,7 @@ export default function Cart() {
     clearCart,
   } = useCart();
 
-  const openUrlServer = "http://localhost:3000";
+  const openUrlServer = import.meta.env.VITE_SERVER_URL;
 
   const getProductImage = (imageUrl?: string | null) => {
     if (!imageUrl) {

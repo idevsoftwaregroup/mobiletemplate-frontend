@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { getPublicPage, type Page } from "../services/pages.services";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function ContactUs() {
   const navigate = useNavigate();

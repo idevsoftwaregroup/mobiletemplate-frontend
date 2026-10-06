@@ -5,7 +5,7 @@ import "../assets/css/checkout.css";
 
 import { useCart } from "../contexts/CartContext";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 interface CheckoutForm {
   firstName: string;
