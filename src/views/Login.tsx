@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = "http://0.0.0.0:3000";
 
 export default function Login() {
   const navigate = useNavigate();

@@ -5,7 +5,7 @@ import "../assets/css/checkout.css";
 
 import { useCart } from "../contexts/CartContext";
 
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = "http://0.0.0.0:3000";
 
 interface CheckoutForm {
   firstName: string;
