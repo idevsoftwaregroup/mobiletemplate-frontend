@@ -1,7 +1,11 @@
 import { FormEvent, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
+<<<<<<< Updated upstream
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+=======
+const SERVER_URL = "http://localhost:3000";
+>>>>>>> Stashed changes
 
 export default function Login() {
   const navigate = useNavigate();

@@ -5,7 +5,11 @@ import "../assets/css/checkout.css";
 
 import { useCart } from "../contexts/CartContext";
 
+<<<<<<< Updated upstream
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+=======
+const SERVER_URL = "http://localhost:3000";
+>>>>>>> Stashed changes
 
 interface CheckoutForm {
   firstName: string;

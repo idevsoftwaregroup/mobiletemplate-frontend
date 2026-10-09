@@ -9,7 +9,11 @@ import {
   type PaymentStatus,
 } from "../services/payments.services";
 
+<<<<<<< Updated upstream
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+=======
+const SERVER_URL = "http://localhost:3000";
+>>>>>>> Stashed changes
 
 function formatPrice(value: string | number): string {
   const amount = Number(value);

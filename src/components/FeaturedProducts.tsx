@@ -6,7 +6,11 @@ import { useCart } from "../contexts/CartContext";
 
 import imgUrl from "../../src/assets/img/product-placeholder.jpg";
 
+<<<<<<< Updated upstream
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+=======
+const SERVER_URL = "http://localhost:3000";
+>>>>>>> Stashed changes
 
 export default function FeaturedProducts() {
   const [products, setProducts] = useState<Product[]>([]);
